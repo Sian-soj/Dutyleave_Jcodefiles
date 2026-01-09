@@ -1,1 +1,0 @@
-so basic idea is to create a a security(could be a digital signature or something else) for the documents and making it unique so that no one could a duplicate of the document.
