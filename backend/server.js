@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors'); // Added CORS
 const cryptoLib = require('./src/crypto');
 const docLib = require('./src/document');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001; // Changed to 3001
 
+app.use(cors()); // Enable CORS
 app.use(bodyParser.json());
 
 // 1. Generate Keys Endpoint (Admin)
