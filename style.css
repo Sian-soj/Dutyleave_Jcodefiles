@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #84069a;
+    padding: 30px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.btn-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 16px;
+    font-size: 15px;
+    background: #0b57d0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    border-collapse: collapse;
+    background: rgb(237, 237, 237);
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #e9eef3;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.approved {
+    color: green;
+    font-weight: bold;
+}
+
+#message {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
