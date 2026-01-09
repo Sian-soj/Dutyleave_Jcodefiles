@@ -3,18 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Student Approval</title>
+    <title>Student Approval Table</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <img src="gov.webp" alt="Logo" width="80">
 
-    <h2>Workshop x</h2>
-
-    <!-- ✅ SINGLE APPROVE BUTTON -->
-    <div class="btn-container">
-        <button onclick="approveAll()"> Approve All</button>
-    </div>
+    <h2>Real workshop</h2>
 
     <table>
         <thead>
@@ -24,9 +20,13 @@
                 <th>Period</th>
                 <th>Semester</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
-        <tbody id="tableBody"></tbody>
+
+        <tbody id="tableBody">
+            <!-- Rows inserted by JS -->
+        </tbody>
     </table>
 
     <p id="message"></p>
