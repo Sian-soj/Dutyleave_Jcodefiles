@@ -32,6 +32,25 @@ app.get('/api/data', async (req, res) => {
     }
 });
 
+// Endpoint to update a cell
+app.post('/api/update', async (req, res) => {
+    try {
+        const { range, value } = req.body;
+        const spreadsheetId = process.env.SPREADSHEET_ID;
+
+        if (!range || !value) {
+            return res.status(400).json({ error: 'Missing range or value' });
+        }
+
+        const { updateSheetCell } = require('./sheetsService');
+        await updateSheetCell(spreadsheetId, range, value);
+
+        res.json({ message: 'Sheet updated successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update sheet', details: error.message });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

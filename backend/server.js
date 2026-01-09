@@ -33,6 +33,7 @@ app.post('/sign', async (req, res) => {
         const signature = cryptoLib.signData(data);
 
         // Generate PDF
+        // Generate PDF
         const fileName = `Document_${Date.now()}.pdf`;
         const outputPath = path.join(__dirname, fileName);
 
@@ -52,6 +53,12 @@ app.post('/sign', async (req, res) => {
         console.error(error);
         res.status(500).json({ error: error.message });
     }
+});
+
+// Endpoint to download the generated PDF
+app.get('/download', (req, res) => {
+    const filePath = req.query.file;
+    res.download(filePath);
 });
 
 // 3. Verify Document Endpoint
