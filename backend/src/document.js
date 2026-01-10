@@ -22,11 +22,16 @@ module.exports = {
                 const qrDataUrl = await QRCode.toDataURL(JSON.stringify(payload));
 
                 // 2. Build PDF Content
-                doc.fontSize(25).text('OFFISIAL DUTY LEAVE APPROVAL', 50, 50);
+                doc.fontSize(25).text('OFFICIAL DUTY LEAVE APPROVAL', 50, 50);
 
                 doc.fontSize(14).moveDown();
                 for (const [key, value] of Object.entries(data)) {
-                    doc.text(`${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`);
+                    const keyTitle = key.charAt(0).toUpperCase() + key.slice(1);
+                    if (key.toLowerCase() === 'status' && value === 'Approved') {
+                        doc.fillColor('#008000').text(`${keyTitle}: ${value}`).fillColor('black');
+                    } else {
+                        doc.text(`${keyTitle}: ${value}`);
+                    }
                     doc.moveDown(0.5);
                 }
 

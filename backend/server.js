@@ -29,6 +29,9 @@ app.post('/sign', async (req, res) => {
 
         console.log("Signing data:", data);
 
+        // Ensure status is Approved for the signed document
+        data.status = "Approved";
+
         // Sign
         const signature = cryptoLib.signData(data);
 
