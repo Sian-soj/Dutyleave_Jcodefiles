@@ -12,7 +12,7 @@ async function runTest() {
         department: "Engineering",
         leave_type: "Conference",
         date: "2026-01-15",
-        status: "APPROVED"
+        status: "Approved"
     };
 
     console.log("\n>>> 2. Signing Document...");

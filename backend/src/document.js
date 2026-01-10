@@ -27,7 +27,8 @@ module.exports = {
                 doc.fontSize(14).moveDown();
                 for (const [key, value] of Object.entries(data)) {
                     const keyTitle = key.charAt(0).toUpperCase() + key.slice(1);
-                    if (key.toLowerCase() === 'status' && value === 'Approved') {
+                    // Case-insensitive check for 'Approved' to ensure green color works for 'APPROVED', 'approved', etc.
+                    if (key.toLowerCase() === 'status' && String(value).trim().toLowerCase() === 'approved') {
                         doc.fillColor('#008000').text(`${keyTitle}: ${value}`).fillColor('black');
                     } else {
                         doc.text(`${keyTitle}: ${value}`);
