@@ -47,11 +47,12 @@ body {
     padding: 0 0.5rem;
 }
 
-.logo-section h1 {
-    font-weight: 800;
-    font-size: 1.5rem;
+/* Logo */
+.header-logo {
+    height: 80px;
+    width: auto;
     margin-right: 1rem;
-    display: inline-block;
+    object-fit: contain;
 }
 
 .trial-text {
@@ -212,61 +213,19 @@ body {
 
 /* Main Grid */
 .main-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    display: flex;
+    justify-content: center;
     gap: 1.5rem;
     flex: 1;
     min-height: 0;
 }
 
-/* Charts */
-.charts-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.chart-card {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.card-header h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.time-select {
-    border: none;
-    color: var(--text-secondary);
-    background: transparent;
-    font-size: 0.8rem;
-    cursor: pointer;
-}
-
-.chart-visual {
-    flex: 1;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.chart-visual svg {
-    width: 100%;
-    height: 100%;
-    max-height: 150px;
-}
-
 /* List Card */
 .list-card {
+    flex: 1;
+    width: 100%;
+    /* Optional: Max width if you don't want it stretching too far on huge screens */
+    /* max-width: 1200px; */
     display: flex;
     flex-direction: column;
     overflow: hidden;

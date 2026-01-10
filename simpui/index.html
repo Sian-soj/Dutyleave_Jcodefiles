@@ -15,7 +15,7 @@
         <!-- Header -->
         <header class="top-bar">
             <div class="logo-section">
-                <h1>MDB</h1>
+                <img src="logo.png" alt="MDB Logo" class="header-logo">
                 <span class="trial-text">Welcome to Student Approval System</span>
             </div>
             <div class="actions-section">
@@ -75,57 +75,7 @@
 
         <!-- Main Content Grid -->
         <div class="main-grid">
-            <!-- Left Column: Charts -->
-            <div class="charts-column">
-                <div class="card chart-card">
-                    <div class="card-header">
-                        <h3>Approval Activity</h3>
-                        <select class="time-select">
-                            <option>Last 7 days</option>
-                        </select>
-                    </div>
-                    <div class="chart-visual">
-                        <!-- Visual representation of a curved chart using SVG -->
-                        <svg viewBox="0 0 300 100" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
-                                    <stop offset="0%" stop-color="#333" stop-opacity="0.1" />
-                                    <stop offset="100%" stop-color="#333" stop-opacity="0" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M0,80 Q30,60 50,70 T100,50 T150,30 T200,60 T250,40 T300,50 L300,100 L0,100 Z"
-                                fill="url(#chartGradient)" />
-                            <path d="M0,80 Q30,60 50,70 T100,50 T150,30 T200,60 T250,40 T300,50" fill="none"
-                                stroke="#222" stroke-width="3" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="card chart-card">
-                    <div class="card-header">
-                        <h3>Semester Stats</h3>
-                        <select class="time-select">
-                            <option>Last 7 days</option>
-                        </select>
-                    </div>
-                    <div class="chart-visual">
-                        <svg viewBox="0 0 300 100" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="chartGradient2" x1="0" x2="0" y1="0" y2="1">
-                                    <stop offset="0%" stop-color="#333" stop-opacity="0.1" />
-                                    <stop offset="100%" stop-color="#333" stop-opacity="0" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M0,90 Q40,80 60,60 T120,70 T180,40 T240,50 T300,30 L300,100 L0,100 Z"
-                                fill="url(#chartGradient2)" />
-                            <path d="M0,90 Q40,80 60,60 T120,70 T180,40 T240,50 T300,30" fill="none" stroke="#222"
-                                stroke-width="3" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: List -->
+            <!-- Student List centered/full width -->
             <div class="card list-card">
                 <div class="card-header">
                     <h3>Student List</h3>
