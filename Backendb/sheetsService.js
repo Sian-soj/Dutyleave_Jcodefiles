@@ -1,16 +1,31 @@
 const { google } = require('googleapis');
 const path = require('path');
 
-// Load credentials from a local file - make sure this file exists!
 const KEYFILEPATH = path.join(__dirname, 'credentials.json');
 
 // Scopes for Google Sheets API
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 
-const auth = new google.auth.GoogleAuth({
-  keyFile: KEYFILEPATH,
+let authOptions = {
   scopes: SCOPES,
-});
+};
+
+// Check if running on cloud with Env Var credentials
+if (process.env.GOOGLE_CREDENTIALS_JSON) {
+  try {
+    const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
+    authOptions.credentials = credentials;
+    console.log("Using credentials from Environment Variable.");
+  } catch (e) {
+    console.error("Failed to parse GOOGLE_CREDENTIALS_JSON", e);
+  }
+} else {
+  // Fallback to local file
+  authOptions.keyFile = KEYFILEPATH;
+  console.log("Using credentials from local file.");
+}
+
+const auth = new google.auth.GoogleAuth(authOptions);
 
 async function getSheetData(spreadsheetId, range) {
   try {
