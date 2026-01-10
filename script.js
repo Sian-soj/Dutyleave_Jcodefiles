@@ -12,13 +12,17 @@ function getColumnLetter(index) {
   return String.fromCharCode(65 + index);
 }
 
+// ✅ Render Backend URLs
+const DATA_API_URL = "https://dutyleave-data.onrender.com";
+const SECURITY_API_URL = "https://dutyleave-security.onrender.com";
+
 // Fetch Logic
 async function fetchStudents() {
   try {
     updateLoadingState(true);
     console.log("Fetching students...");
     // Add timestamp to prevent caching
-    const response = await fetch(`http://localhost:3000/api/data?range=Sheet1&_t=${Date.now()}`);
+    const response = await fetch(`${DATA_API_URL}/api/data?range=Sheet1&_t=${Date.now()}`);
     const result = await response.json();
     console.log("Fetch result:", result);
 
@@ -155,7 +159,7 @@ window.approveStudent = async function (index) {
   try {
     // 2. Sign Request
     console.log("Sending sign request...");
-    const response = await fetch('http://localhost:3001/sign', {
+    const response = await fetch(`${SECURITY_API_URL}/sign`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(student)
@@ -171,7 +175,7 @@ window.approveStudent = async function (index) {
       // 3. Auto-download PDF
       if (resData.pdfPath) {
         showToast("Downloading PDF...");
-        const downloadUrl = `http://localhost:3001/download?file=${encodeURIComponent(resData.pdfPath)}`;
+        const downloadUrl = `${SECURITY_API_URL}/download?file=${encodeURIComponent(resData.pdfPath)}`;
         const link = document.createElement('a');
         link.href = downloadUrl;
         link.download = resData.filename || 'Approved_Leave.pdf';
@@ -189,7 +193,7 @@ window.approveStudent = async function (index) {
         const cellAddress = `Sheet1!${statusColumnLetter}${sheetRow}`;
         console.log(`Updating Sheet cell ${cellAddress}...`);
 
-        const updateResp = await fetch('http://localhost:3000/api/update', {
+        const updateResp = await fetch(`${DATA_API_URL}/api/update`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
